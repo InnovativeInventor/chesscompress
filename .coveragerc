@@ -1,0 +1,7 @@
+[report]
+exclude_lines =
+    pass
+omit =
+    benchmarked_backends/*
+    speedups/*
+    tests/*

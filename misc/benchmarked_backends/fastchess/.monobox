@@ -1,0 +1,50 @@
+FROM debian:stretch
+WORKDIR /fastchess
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    sudo \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    python3 \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    nano \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    python3 \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+RUN pip3 install pytest
+RUN apt-get update && apt-get install -y \
+    python3 \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+RUN pip3 install flask
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+RUN curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+RUN echo 'export PATH="/root/.pyenv/bin:$PATH"' >> /etc/bash.bashrc
+RUN echo 'eval "$(pyenv init -)"' >> /etc/bash.bashrc
+RUN echo 'eval "$(pyenv virtualenv-init -)"' >> /etc/bash.bashrc
+ENV PATH="/root/.pyenv/bin:$PATH"

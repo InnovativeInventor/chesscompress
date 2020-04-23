@@ -1,0 +1,52 @@
+[
+   {
+      "name": "stockfish",
+      "command": "stockfish",
+      "protocol": "uci"
+   },
+   {
+      "name": "fastchess",
+      "command": "$PYTHON -u uci.py",
+      "workingDirectory": "$FILE",
+      "protocol": "uci",
+      "options": [
+         {"name": "ModelPath", "value": "models/model.bin"}
+      ]
+   },
+   {
+      "name": "fastchess2",
+      "command": "$PYTHON -u uci.py",
+      "workingDirectory": "$FILE",
+      "protocol": "uci",
+      "options": [
+         {"name": "ModelPath", "value": "models/model2.bin"}
+      ]
+   },
+   {
+      "name": "fastchess3",
+      "command": "$PYTHON -u uci.py",
+      "workingDirectory": "$FILE",
+      "protocol": "uci",
+      "options": [
+         {"name": "ModelPath", "value": "models/model3.bin"}
+      ]
+   },
+   {
+      "name": "sunfish",
+      "command": "python3 -u xboard.py",
+      "workingDirectory": "$FILE/../sunfish",
+      "protocol": "xboard"
+   },
+   {
+      "name": "pychess",
+      "command": "python3 -u pychess/Players/PyChess.py",
+      "workingDirectory": "$FILE/../pychess/lib",
+      "protocol": "xboard"
+   },
+   {
+      "name": "feeks",
+      "command": "$PYTHON -u main.py",
+      "workingDirectory": "$FILE/../feeks",
+      "protocol": "uci"
+   }
+]

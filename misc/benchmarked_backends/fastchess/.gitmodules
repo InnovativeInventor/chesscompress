@@ -1,0 +1,3 @@
+[submodule "pystreams"]
+	path = pystreams
+	url = https://github.com/thomasahle/pystreams

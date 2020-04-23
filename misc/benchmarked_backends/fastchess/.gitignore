@@ -1,0 +1,12 @@
+*.swp
+__pycache__/
+*.model
+data/*
+*.bin
+log
+*.log
+*.out
+*.pgn
+*.gz
+my_engines.json
+debugfile
