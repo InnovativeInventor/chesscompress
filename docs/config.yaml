@@ -1,0 +1,11 @@
+---
+from: gfm+emoji
+to: html5
+metadata:
+  title: ChessCompress
+css: https://andybrewer.github.io/mvp/mvp.css
+output-file: index.html
+input-files:
+    - index.md
+template: template.html
+

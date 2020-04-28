@@ -6,7 +6,8 @@ if __name__ == '__main__':
     benchmarker = learn.Learn(tepid=tepid)
 
     print("Printing average bitrate per move:")
-    entropy, avg, stdev = benchmarker.evaluate(n=100)
+    entropy, avg, stdev = benchmarker.evaluate(n=50000)
+    # entropy, avg, stdev = benchmarker.evaluate(n=50)
 
     print("Tepid", tepid)
     print("Entropy", entropy)

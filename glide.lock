@@ -1,0 +1,8 @@
+hash: d028fd53ee01c7660f60b0eac74b5587661bb310f9fdc5109f7986b7d48188ed
+updated: 2020-04-25T23:04:16.80673-04:00
+imports:
+- name: github.com/freeeve/uci
+  version: 32d3e690c405f9b49e33997a4a832e20930bb75d
+- name: github.com/notnil/chess
+  version: d060aa4d6b96e4fd84bf8d6dc8aa622a846d8eda
+testImports: []

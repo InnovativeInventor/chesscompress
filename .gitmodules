@@ -1,0 +1,6 @@
+[submodule "chesscompress/fastchess"]
+	path = chesscompress/fastchess
+	url = https://github.com/thomasahle/fastchess
+[submodule "chesscompress/leela/trainingdata-tool"]
+	path = chesscompress/leela/trainingdata-tool
+	url = https://github.com/DanielUranga/trainingdata-tool

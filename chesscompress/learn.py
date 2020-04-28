@@ -1,4 +1,5 @@
 import chess
+from collections.abc import Iterable
 import numpy as np
 from tensorflow import keras
 import tensorflow as tf
@@ -9,7 +10,7 @@ from multiprocessing import Pool
 import statistics
 import pickle
 import math
-from typing import Iterable
+import typing
 import chess.pgn
 from tqdm import tqdm
 # from joblib import Memory
@@ -48,9 +49,9 @@ class Learn:
         if os.path.isfile(filename):
             with open(filename, "rb") as f:
                 result = pickle.load(f)
+                print("Cache used!")
                 # print(result)
                 # if any(result[1][0]):
-                    # print("Cache used!")
                 return result
         return False
 
@@ -63,12 +64,12 @@ class Learn:
         # print(a,b)
         # if isinstance(a, tuple):
         print(np.array(a).shape, np.array(b).shape)
-        if a and b:
+        if isinstance(a, Iterable) and isinstance(b, Iterable):
             # print("Success")
             return b.extend(a)
-        elif a:
+        elif isinstance(a, Iterable) and a:
             return a
-        elif b:
+        elif isinstance(b, Iterable) and b:
             return b
         return b
         # return b
@@ -180,8 +181,12 @@ class Learn:
         return entropy, statistics.mean(entropy), statistics.stdev(entropy)
 
     def evaluate_game(self, each_game):
+        if precomputed := self.get_cache(each_game.headers.get('Site') + "eval"):
+            return precomputed
+
         entropy = []
-        model = keras.models.load_model("models/no-flip-model.h5")
+        # model = keras.models.load_model("models/no-flip-model.h5")
+        model = keras.models.load_model("models/dataset.h5")
         model.add(keras.layers.Softmax()) # to normalize
         
         for each_score in self.analyze_dataset(each_game):
@@ -215,6 +220,7 @@ class Learn:
             print(bitrate)
             entropy.append(bitrate)
 
+        self.save_cache(each_game.headers.get('Site') + "eval", entropy)
         return entropy
     # def predict(fen, huffman):
 
@@ -222,7 +228,7 @@ class Learn:
         # self.memory.cache(
 
 
-    def get_game(self, n=1000) -> Iterable:
+    def get_game(self, n=1000) -> typing.Iterable:
         """
         Iterates over each game in the PGN file up to n, the parse limit
 
