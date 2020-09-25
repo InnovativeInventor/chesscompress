@@ -18,7 +18,7 @@ pyspark = "*"
 matplotlib = "*"
 joblib = "*"
 diskcache = "*"
-tensorflow = "==2.0.1"
+tensorflow = "==2.0.3"
 
 [requires]
 python_version = "3.8"
