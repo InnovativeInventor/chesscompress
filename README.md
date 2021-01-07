@@ -5,6 +5,8 @@ ChessCompress uses novel, hopefully better than state-of-the-art chess compressi
 
 **Note:** This code is slow, but could be sped up by implementing the same techniques in a faster language.
 
+Finally, a rough writeup of the techniques used lives here: https://compress.max.fan/.
+
 ## Benchmarks
 To calculate the theoretical entropy rate, I averaged the Shannon information of each move in the dataset using each prediction function, assuming that the prediction function is perfect. The entropy of each move $x$, given a prediction function p that spits out the probability of the move, is defined as:
 
